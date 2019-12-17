@@ -81,9 +81,9 @@ capacities.each	do |capacity|
 	 			x_0 = solutions_matrix[x[0]][0].split(" ")[1].to_i
 	 			x_1 = solutions_matrix[x[1]][0].split(" ")[1].to_i
 	 			x_2 = solutions_matrix[x[2]][0].split(" ")[1].to_i
-	 		if ((x_0+x_1) < par_cap) && ((x_0+x_1)> (x_0+x_2)) && ((x_0+x_1)>(x_2+x_1)) then solutions_matrix[x[2]].shift end
-	 		if ((x_0+x_2) < par_cap) && ((x_0+x_2)> (x_0+x_1)) && ((x_0+x_2)>(x_2+x_1)) then solutions_matrix[x[1]].shift end
-			if ((x_2+x_1) < par_cap) && ((x_2+x_1)> (x_0+x_2)) && ((x_2+x_1)>(x_0+x_1)) then solutions_matrix[x[0]].shift end
+	 		if ((x_0+x_1) < par_cap) && ((x_0+x_1)> (x_0+x_2)) && ((x_0+x_1)>(x_2+x_1)) then solutions_matrix[x[2]].shift else solutions_matrix[x[1]].shift; solutions_matrix[x[0]].shift end
+	 		if ((x_0+x_2) < par_cap) && ((x_0+x_2)> (x_0+x_1)) && ((x_0+x_2)>(x_2+x_1)) then solutions_matrix[x[1]].shift else solutions_matrix[x[0]].shift; solutions_matrix[x[2]].shift end
+			if ((x_2+x_1) < par_cap) && ((x_2+x_1)> (x_0+x_2)) && ((x_2+x_1)>(x_0+x_1)) then solutions_matrix[x[0]].shift else solutions_matrix[x[1]].shift; solutions_matrix[x[2]].shift end
 	 	end
 
 	 end
